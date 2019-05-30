@@ -36,7 +36,7 @@
                  style="font-size: 17px;padding: 5px 6px 5px 3px"
                  :title="d_words.tl_help" aria-hidden="true"></button>
 				 
-		<button type="button" v-for="item in plugins" v-if="item.position!='right'"  @click="$clicks(item)" :class="'op-icon ' + item.clsname"
+		<button type="button" v-for="item in plugins" v-if="item.position=='right'"  @click="$clicks(item)" :class="'op-icon ' + item.clsname"
         aria-hidden="true"
         :title="item.label"></button>		 
         <slot name="right-toolbar-after" />
