@@ -115,6 +115,11 @@
         aria-hidden="true"
         :title="`${d_words.tl_setting} `"></button>
 		
+		<button type="button" v-for="item in plugins" @click="$clicks(item)" class="op-icon `{$item.clsname}`"
+        aria-hidden="true"
+        :title="item.label"></button>
+		
+		
 		<button type="button" v-if="toolbars.save" @click="$clicks('save')" class="op-icon fa fa-mavon-floppy-o"
                 aria-hidden="true"
                 :title="`${d_words.tl_save} (ctrl+s)`"></button>
@@ -162,7 +167,11 @@
             image_filter: {
                 type: Function,
                 default: null
-            }
+            },
+			plugins:{
+				type:Array,
+				default:[]
+			}
         },
         data() {
             return {
