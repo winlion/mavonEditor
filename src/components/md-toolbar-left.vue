@@ -108,7 +108,7 @@
                 aria-hidden="true"
                 :title="`${d_words.tl_trash} (ctrl+breakspace)`"></button>
         
-		<button type="button" v-for="item in plugins"  @click="$clicks(item)" :class="'op-icon ' + item.clsname"
+		<button type="button" v-for="item in plugins" v-if="item.position!='right'"  @click="$clicks(item)" :class="'op-icon ' + item.clsname"
         aria-hidden="true"
         :title="item.label"></button>
 		

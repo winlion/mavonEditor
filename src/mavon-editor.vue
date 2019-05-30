@@ -2,13 +2,13 @@
     <div :class="[{'fullscreen': s_fullScreen}]" class="v-note-wrapper markdown-body">
         <!--工具栏-->
         <div class="v-note-op" v-show="toolbarsFlag" :class="{'shadow': boxShadow}">
-            <v-md-toolbar-left ref="toolbar_left" :editable="editable" :d_words="d_words"
+            <v-md-toolbar-left ref="toolbar_left" :editable="editable" :d_words="d_words" :plugins="plugins"
                                @toolbar_left_click="toolbar_left_click" @toolbar_left_addlink="toolbar_left_addlink" :toolbars="toolbars"
-                               @imgAdd="$imgAdd" @imgDel="$imgDel" @imgTouch="$imgTouch" :image_filter="imageFilter">
+                               @imgAdd="$imgAdd"  @imgDel="$imgDel" @imgTouch="$imgTouch" :image_filter="imageFilter">
                 <slot name="left-toolbar-before" slot="left-toolbar-before" />
                 <slot name="left-toolbar-after" slot="left-toolbar-after" />
             </v-md-toolbar-left>
-            <v-md-toolbar-right ref="toolbar_right" :d_words="d_words" @toolbar_right_click="toolbar_right_click"
+            <v-md-toolbar-right ref="toolbar_right" :d_words="d_words" :plugins="plugins" @toolbar_right_click="toolbar_right_click"
                                 :toolbars="toolbars"
                                 :s_subfield="s_subfield"
                                 :s_preview_switch="s_preview_switch" :s_fullScreen="s_fullScreen"
@@ -210,7 +210,11 @@ export default {
         shortCut:{
             type: Boolean,
             default: true
-        }
+        },
+		plugins:{
+				type:Array,
+				default: () => []
+			}
     },
     data() {
         return {
