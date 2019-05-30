@@ -107,9 +107,18 @@
         <button type="button" v-if="toolbars.trash" @click="$clicks('trash')" class="op-icon fa fa-mavon-trash-o"
                 aria-hidden="true"
                 :title="`${d_words.tl_trash} (ctrl+breakspace)`"></button>
-        <button type="button" v-if="toolbars.save" @click="$clicks('save')" class="op-icon fa fa-mavon-floppy-o"
+        
+		<button type="button" v-if="toolbars.share" @click="$clicks('share')" class="op-icon fa fa-share-o"
+        aria-hidden="true"
+        :title="`${d_words.tl_share}`"></button>
+		<button type="button" v-if="toolbars.setting" @click="$clicks('setting')" class="op-icon fa fa-cogs"
+        aria-hidden="true"
+        :title="`${d_words.tl_setting} `"></button>
+		
+		<button type="button" v-if="toolbars.save" @click="$clicks('save')" class="op-icon fa fa-mavon-floppy-o"
                 aria-hidden="true"
                 :title="`${d_words.tl_save} (ctrl+s)`"></button>
+		
         <slot name="left-toolbar-after" />
 
         <!-- 添加image链接 -->

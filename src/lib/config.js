@@ -69,6 +69,8 @@ export const CONFIG = {
         'readmodel': true,
         'htmlcode': true,
         'help': true,
-        'preview': true
+        'preview': true,
+		'share':true,
+		'setting':true,
     }
 };

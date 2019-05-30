@@ -42,6 +42,12 @@ function $toolbar_left_trash_click($vm) {
 function $toolbar_left_save_click($vm) {
     $vm.save($vm.d_value, $vm.d_render)
 }
+//默认点击事件
+function $toolbar_click_item($vm,$env) {
+	if(typeof $vm.clickItem=="function"){
+			$vm.clickItem($vm,$env)
+	}   
+}
 // ol
 function $toolbar_left_ol_click($vm) {
     $vm.insertOl()
@@ -191,5 +197,7 @@ export const toolbar_left_click = (_type, $vm) => {
      };
      if (_other_left_click.hasOwnProperty(_type)) {
          _other_left_click[_type]($vm);
-     }
+     }else{
+		 $toolbar_click_item($vm,_type)
+	 }
  }

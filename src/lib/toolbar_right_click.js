@@ -76,6 +76,12 @@ function $toolbar_right_navigation_click($vm) {
         $vm.getNavigation($vm, false)
     }
 }
+		//默认点击事件
+function $toolbar_click_item($vm,$env) {
+	if(typeof $vm.clickItem=="function"){
+			$vm.clickItem($vm,$env)
+	}   
+}
 export const toolbar_right_click = (_type, $vm) => {
     var _other_right_click = {
         'help': $toolbar_right_help_click,
@@ -88,5 +94,7 @@ export const toolbar_right_click = (_type, $vm) => {
     }
     if (_other_right_click.hasOwnProperty(_type)) {
         _other_right_click[_type]($vm);
-    }
+    }else{
+		$toolbar_click_item($vm,_type)
+	}
 }
