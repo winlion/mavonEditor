@@ -108,14 +108,7 @@
                 aria-hidden="true"
                 :title="`${d_words.tl_trash} (ctrl+breakspace)`"></button>
         
-		<button type="button" v-if="toolbars.share" @click="$clicks('share')" class="op-icon fa fa-share-o"
-        aria-hidden="true"
-        :title="`${d_words.tl_share}`"></button>
-		<button type="button" v-if="toolbars.setting" @click="$clicks('setting')" class="op-icon fa fa-cogs"
-        aria-hidden="true"
-        :title="`${d_words.tl_setting} `"></button>
-		
-		<button type="button" v-for="item in plugins" @click="$clicks(item)" class="op-icon `{$item.clsname}`"
+		<button type="button" v-for="item in plugins"  @click="$clicks(item)" :class="'op-icon ' + item.clsname"
         aria-hidden="true"
         :title="item.label"></button>
 		
@@ -170,7 +163,7 @@
             },
 			plugins:{
 				type:Array,
-				default:[]
+				default: () => []
 			}
         },
         data() {
