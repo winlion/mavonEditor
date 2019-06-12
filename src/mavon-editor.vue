@@ -509,7 +509,7 @@ export default {
             this.$emit('previewToggle', status, val)
         },
 		clickItem($vm,type){
-			this.$emit('clickItem',type)
+			this.$emit('clickItem',type,$vm)
 		},
         // 切换分栏触发 （status , val）
         subfieldtoggle(status, val) {
